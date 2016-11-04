@@ -65,9 +65,13 @@
 	<script type="text/template" id="euler-tmpl">
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3">
-				<p>The <%= x %>th prime number of <%= y %> digits starts at position <%= position %></p>
-				<p>It's <%= prime %></p>
-				<p class="euler"><%= eulerNumber %></p>
+				<% if (prime === '') { %>
+					<p>No primes found for <%= x %>, <%= y %></p>
+				<% } else { %>
+					<p>The <%= x %>th prime number of <%= y %> digits starts at position <%= position %></p>
+					<p>It's <%= prime %></p>
+					<p class="euler"><%= eulerNumber %></p>
+				<% } %>
 				<hr>
 			</div>
 		</div>
@@ -75,11 +79,17 @@
 	<script type="text/javascript">
 		function formatEulerNumber(results) {
 			var number = results['euler'],
-				lastPrime = results['primes'].pop(),	// Special-case the final prime for display
+				lastPrime = results['primes'].pop(),
+				// Special-case the final prime for display
 				offset = 2;
 
+			if (lastPrime === undefined) {
+				return number;
+			}
+
 			if (results['count_the_two']) {
-				offset = 1;	// Account for 0-indexing of slice vs 1-indexing of lastPrime['position']
+				offset = 1;
+				// Account for 0-indexing of slice vs 1-indexing of lastPrime['position']
 			}
 
 			// Partition the string into pre-targetPrime, <span>targetPrime</span>, post-targetPrime
@@ -103,14 +113,21 @@
 		_.each(results, function(result) {
 			var tmpl = _.template($('#euler-tmpl').html()),
 				last = result['primes'].slice(-1)[0],
+				position = '',
+				prime = '',
 				eulerNumber = formatEulerNumber(result);
+
+			if (last) {
+				position = last['position'];
+				prime = last['prime'];
+			}
 
 			$('#results').append(tmpl({
 				eulerNumber: eulerNumber,
 				x: result['x'],
 				y: result['y'],
-				position: last['position'],
-				prime: last['prime']
+				position: position,
+				prime: prime
 			}));
 		});
 	</script>
