@@ -2,12 +2,12 @@
 
 Assuming you've got virtualenv setup. (If not, [get it](https://virtualenv.pypa.io/en/stable/)).
 
-- Install virtualenvwrapper (just makes life easier)
+- Install virtualenvwrapper (just makes life easier):
 ```sh
 $ pip install virtualenvwrapper
 ```
 
-- Create a virtualenv
+- Create a virtualenv:
 ```sh
 $ mkvirtualenv euler
 ```
@@ -23,4 +23,4 @@ $ pip install -r requirements.txt
 $ python server.py
 ```
 
-- Visit the app (should be running at [http://127.0.0.1:5000/](http://127.0.0.1:5000/))
+- Visit the app: Should be running at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
