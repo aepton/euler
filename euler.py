@@ -64,6 +64,9 @@ class EulerPrimeFinder(object):
         the leading 2 as part of Euler's number; if False, just uses all numbers after the
         decimal place.
 
+        15 is the largest value for y that this method of determining primality can handle,
+        so if y > 15, returns an empty list of primes.
+
         Returns a dict containing two items:
         * "euler": Euler's number with 1,000 decimal places (for use in visualization on the frontend).
         * "x": value for x
@@ -92,6 +95,11 @@ class EulerPrimeFinder(object):
             'count_the_two': count_the_two,
             'primes': []
         }
+
+        # Bail out if we need to look for 16-digit primes or higher.
+        if y > 15:
+            return matches
+
         begin = 0
         end = y
         comparisons = 0
