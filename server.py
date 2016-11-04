@@ -1,10 +1,12 @@
 #!/usr/bin/python
 
+import csv
 import json
 
 from csv import DictReader
 from euler import EulerPrimeFinder
 from flask import Flask, render_template, request
+from StringIO import StringIO
 
 app = Flask(__name__)
 
@@ -38,7 +40,9 @@ def upload():
 	Handles uploads containing multiple pairs of requests.
 	"""
 	finder = EulerPrimeFinder(1000)
-	reader = DictReader(request.files['uploaded_csv'], ['x', 'y'])
+	# Handle wacky carriage returns. Oh, 2016, why is this still a thing?
+	processed_file = request.files['uploaded_csv'].read().replace('\r', '\n')
+	reader = DictReader(StringIO(processed_file), ['x', 'y'])
 
 	multiple_results = []
 
