@@ -23,8 +23,8 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 353)
-        self.assertEqual(int(with_two_result[-1]['prime']), 523)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 353)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 523)
 
     def test_4_5(self):
         x = 4
@@ -32,9 +32,9 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 24709)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 24709)
         # This will fail; 24977 is the 3rd, not 4th, 5-digit prime
-        self.assertEqual(int(with_two_result[-1]['prime']), 24977)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 24977)
 
     def test_3_2(self):
         x = 3
@@ -42,8 +42,8 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 23)
-        self.assertEqual(int(with_two_result[-1]['prime']), 23)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 23)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 23)
 
     def test_1_4(self):
         x = 1
@@ -51,8 +51,8 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 4523)
-        self.assertEqual(int(with_two_result[-1]['prime']), 4523)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 4523)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 4523)
 
     def test_5_6(self):
         x = 5
@@ -60,8 +60,8 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 995957)
-        self.assertEqual(int(with_two_result[-1]['prime']), 995957)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 995957)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 995957)
 
     def test_9_6(self):
         x = 9
@@ -69,8 +69,8 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 594571)
-        self.assertEqual(int(with_two_result[-1]['prime']), 594571)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 594571)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 594571)
 
     def test_6_10(self):
         x = 6
@@ -78,9 +78,9 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 1573834187)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 1573834187)
         # This will fail; 1063686487 doesn't appear in the first 1000 digits
-        self.assertEqual(int(with_two_result[-1]['prime']), 1063686487)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 1063686487)
 
     def test_4_1(self):
         x = 4
@@ -88,8 +88,8 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 5)
-        self.assertEqual(int(with_two_result[-1]['prime']), 2)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 5)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 2)
 
     def test_3_5(self):
         x = 3
@@ -97,9 +97,9 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 24977)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 24977)
         # This will fail; 62497 is the 2nd, not 3rd, 5-digit prime
-        self.assertEqual(int(with_two_result[-1]['prime']), 62497)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 62497)
 
     def test_2_7(self):
         x = 2
@@ -107,8 +107,8 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 2497757)
-        self.assertEqual(int(with_two_result[-1]['prime']), 6028747)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 2497757)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 6028747)
 
     def test_8_3(self):
         x = 8
@@ -116,8 +116,8 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 277)
-        self.assertEqual(int(with_two_result[-1]['prime']), 967)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 277)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 967)
 
     def test_5_11(self):
         x = 5
@@ -125,9 +125,9 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 33829880753)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 33829880753)
         # This will fail; 36864870169 doesn't appear in the first 1000 digits
-        self.assertEqual(int(with_two_result[-1]['prime']), 36864870169)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 36864870169)
 
     def test_5_13(self):
         x = 5
@@ -135,9 +135,9 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 3232862794349)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 3232862794349)
         # This will fail; 7099983170353 doesn't appear in the first 1000 digits
-        self.assertEqual(int(with_two_result[-1]['prime']), 7099983170353)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 7099983170353)
 
     def test_6_12(self):
         x = 6
@@ -145,9 +145,9 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 157383418793)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 157383418793)
         # This will fail; 82449550453 doesn't appear in the first 1000 digits
-        self.assertEqual(int(with_two_result[-1]['prime']), 82449550453)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 82449550453)
 
     def test_7_6(self):
         x = 7
@@ -155,8 +155,8 @@ class TestProvidedCases(unittest.TestCase):
         without_two_result = self.finder.find_xth_prime_of_y_digits(x, y, False)
         with_two_result = self.finder.find_xth_prime_of_y_digits(x, y, True)
 
-        self.assertEqual(int(without_two_result[-1]['prime']), 630353)
-        self.assertEqual(int(with_two_result[-1]['prime']), 630353)
+        self.assertEqual(int(without_two_result['primes'][-1]['prime']), 630353)
+        self.assertEqual(int(with_two_result['primes'][-1]['prime']), 630353)
 
 if __name__ == '__main__':
     unittest.main()
