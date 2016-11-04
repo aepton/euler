@@ -66,7 +66,10 @@ class EulerPrimeFinder(object):
 
         Returns a dict containing two items:
         * "euler": Euler's number with 1,000 decimal places (for use in visualization on the frontend).
-        * list of dicts (for use in visualization on the frontend). Each item in the list is a
+        * "x": value for x
+        * "y": value for y
+        * "count_the_two": True if we're counting the 2, False otherwise
+        * "primes": list of dicts (for use in visualization on the frontend). Each item in the list is a
           dict containing two items:
           * "prime": the prime number found
           * "position": the offset of the first digit in the prime number
@@ -82,7 +85,13 @@ class EulerPrimeFinder(object):
         else:
             digits = self.euler_number.replace('.', '')
 
-        matches = []
+        matches = {
+            'euler': self.euler_number,
+            'x': x,
+            'y': y,
+            'count_the_two': count_the_two,
+            'primes': []
+        }
         begin = 0
         end = y
         comparisons = 0
@@ -95,7 +104,7 @@ class EulerPrimeFinder(object):
             # This would be where we expand search space if we needed to, but
             # as above, for this specific problem that seems unnecessary.
             if len(window) < y:
-                print 'Could only find %d matches' % len(matches)
+                print 'Could only find %d matches' % len(matches['primes'])
                 return matches
 
             if window.startswith('0'):
@@ -105,11 +114,11 @@ class EulerPrimeFinder(object):
             comparisons += 1
             if self.is_prime(int(window)):
                 # Yay, we found a match. Create a results object for future display.
-                matches.append({
+                matches['primes'].append({
                     'prime': window,
                     'position': begin
                 })
-            if len(matches) == x:
+            if len(matches['primes']) == x:
                 return matches
             begin += 1
             end += 1
