@@ -11,8 +11,13 @@ $ pip install virtualenvwrapper
 ```sh
 $ mkvirtualenv euler
 ```
+
 - Install requirements.txt:
 
 ```sh
 $ pip install -r requirements.txt
+```
+- Run the server:
+```sh
+$ python server.py
 ```
